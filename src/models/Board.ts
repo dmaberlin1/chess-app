@@ -6,9 +6,13 @@ import {Queen} from "./figures/Queen";
 import {Bishop} from "./figures/Bishop";
 import {Rook} from "./figures/Rook";
 import {Knight} from "./figures/Knight";
+import {Figure} from "./figures/Figure";
 
 export class Board {
     cells: Cell[][] = []
+    lostBlackFigures:Figure[]=[]
+    lostWhiteFigures:Figure[]=[]
+
 
     //двумерный массив, строки и столбцы
 
@@ -43,6 +47,8 @@ export class Board {
     public getCopyBoard():Board{
         const newBoard=new Board();
         newBoard.cells=this.cells;
+        newBoard.lostWhiteFigures=this.lostWhiteFigures
+        newBoard.lostBlackFigures=this.lostBlackFigures
         return newBoard
     }
 
